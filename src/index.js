@@ -18,8 +18,10 @@ ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
             <ThemeProvider theme={customTheme}>
-                <NavBar />
-                <App/>
+                <div className="w-11/12 mx-auto max-w-screen-xl">
+                    <NavBar />
+                    <App/>
+                </div>
             </ThemeProvider>
         </BrowserRouter>
     </React.StrictMode>,

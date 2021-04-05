@@ -19,14 +19,14 @@ export default function NavBar() {
     const loggedIn = true;
 
     return (
-        <nav className="h-14 w-full bg-white flex flex-row px-3 border-b-1 border-gray-300">
+        <nav className="h-14 bg-white flex flex-row">
             <div className="flex flex-1 items-center">
                 <img src={logo} alt="notr logo" height="30px" width="30px" className="mr-3" />
                 <div className="invisible md:visible">
                     Notr
                 </div>
             </div>
-            <div className="flex flex-1 items-end">
+            <div className="flex flex-1">
                 <Autocomplete
                     {...props}
                     freeSolo={true}
