@@ -1,16 +1,17 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
-import testpb from '../assets/testpb.jpg';
+import testpb from '../../assets/testpb.jpg';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import {Link} from 'react-router-dom';
 
 export default function NotePage() {
 
+    const [htmlArticle, setHtmlArticle] = useState(undefined);
     const [tabIndex, setTabIndex] = useState(0);
     const [note, setNote] = useState({
         title: 'Tv-seriers plads i det kulturelle landskab\n',
@@ -21,6 +22,17 @@ export default function NotePage() {
         created: 'Dec 3, 2020',
         saved: true
     });
+
+    useEffect(() => {
+        getHTMLArticle();
+    }, [])
+
+    async function getHTMLArticle() {
+        if (!htmlArticle) {
+            const article = await (await fetch('https://static.notr.dk/desktop-html/6ukGe13m.html')).text();
+            setHtmlArticle({__html: article});
+        }
+    }
 
     function save() {
         setNote({
@@ -66,31 +78,31 @@ export default function NotePage() {
                     <Tab label="PDF" />
                 </Tabs>
                 <div className="flex justify-center md:block">
-                    <TabPanel value={tabIndex} index={0}>
-                        df
-                    </TabPanel>
-                    <TabPanel value={tabIndex} index={1}>
+                    <ArticlePanel value={tabIndex} index={0} html={htmlArticle} />
+                    <PDFPanel value={tabIndex} index={1}>
                         <object data="https://static.notr.dk/pdf/6ukGe13m.pdf" type="application/pdf" className="w-screen md:w-full h-screen">
                             {note.title}
                         </object>
-                    </TabPanel>
+                    </PDFPanel>
                 </div>
             </div>
         </>
     );
 }
 
-
-function TabPanel(props) {
-    const { children, value, index, ...other } = props;
-
+function ArticlePanel({html, value, index}) {
     return (
-        <div
-            role="tabpanel"
-            hidden={value !== index}
-            aria-labelledby={`simple-tab-${index}`}
-            {...other}
-        >
+        <>
+            {value === index && (
+                <div dangerouslySetInnerHTML={html} />
+            )}
+        </>
+    );
+}
+
+function PDFPanel({children, value, index}) {
+    return (
+        <>
             {value === index && (
                 <>
                     {index === 1 && (
@@ -101,6 +113,6 @@ function TabPanel(props) {
                     {children}
                 </>
             )}
-        </div>
+        </>
     );
 }

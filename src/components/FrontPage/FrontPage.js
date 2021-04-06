@@ -1,14 +1,9 @@
 import React, {useState} from 'react';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import GetAppIcon from '@material-ui/icons/GetApp';
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-import BookmarkIcon from '@material-ui/icons/Bookmark';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 
 export default function FrontPage() {
 
-    const [brugere] = useState([
+    const [users, setUsers] = useState([
         {
             profilePicture: 'https://static.notr.dk/profilbilleder/Fsu9Hyvv.jpg',
             username: 'Johan',
@@ -19,7 +14,7 @@ export default function FrontPage() {
 
     function save(event) {
         console.log(event);
-        console.log(brugere);
+        console.log(users);
     }
 
 
@@ -28,8 +23,7 @@ export default function FrontPage() {
             <div className="flex flex-1 flex-row pb-3">
                 <div className="flex-1 flex-col border-r-1 border-lightgray-400">
                     <div className="flex-1 font text-sm">
-                        <TrendingUpIcon className="mr-1.5">
-                        </TrendingUpIcon>
+                        <TrendingUpIcon className="mr-1.5" />
                         NYT FRA DEM DU FØLGER
                     </div>
 
@@ -44,11 +38,10 @@ export default function FrontPage() {
 
                 <div className="flex-1 flex-col pl-8">
                     <div className="flex-1 text-sm">
-                        <TrendingUpIcon className="mr-1.5">
-                        </TrendingUpIcon>
+                        <TrendingUpIcon className="mr-1.5" />
                         TOP BRUGERE
                     </div>
-                    {brugere.map(name =>
+                    {users.map(name =>
                     <div>
 
                     </div>
