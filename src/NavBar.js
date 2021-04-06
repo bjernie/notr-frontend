@@ -20,7 +20,7 @@ export default function NavBar() {
 
     return (
         <nav className="h-14 bg-white flex flex-row">
-            <div className="flex flex-1 items-center">
+            <div className="flex md:flex-1 items-center">
                 <img src={logo} alt="notr logo" height="30px" width="30px" className="mr-3" />
                 <div className="invisible md:visible">
                     Notr
@@ -39,10 +39,10 @@ export default function NavBar() {
                         <IconButton color="primary" component={Link} to="/upload">
                                 <AddIcon />
                         </IconButton>
-                        <IconButton className="mx-2.5">
+                        <IconButton className="md:mx-2.5 mx-1">
                             <NotificationsIcon />
                         </IconButton>
-                        <IconButton className="mr-2.5" component={Link} to="/indstillinger">
+                        <IconButton className="md:mr-2.5 mr-1" component={Link} to="/indstillinger">
                             <SettingsIcon />
                         </IconButton>
                         <img src={testpb} alt="user profile" className="rounded-full" height="30px" width="30px" />
@@ -52,7 +52,7 @@ export default function NavBar() {
                         <Link to="/betingelser">
                             Betingelser
                         </Link>
-                        <IconButton className="mx-2.5">
+                        <IconButton className="md:mx-2.5">
                             <AddIcon />
                         </IconButton>
                         <div>
