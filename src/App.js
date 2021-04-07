@@ -7,7 +7,7 @@ function App() {
     return (
         <div className="mt-14">
             <Switch>
-                <Route path="/note/:id" component={NotePage} />
+                <Route path="/note/:id" render={(props) => <NotePage {...props} />} />
                 <Route path="/profile/:id" component={FrontPage} />
             </Switch>
         </div>
