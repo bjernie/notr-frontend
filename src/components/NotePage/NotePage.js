@@ -43,47 +43,49 @@ export default function NotePage() {
 
     return (
         <>
-            <div className="flex flex-1 flex-row border-b-1 border-gray-400 pb-2">
-                <div className="flex flex-1 items-center">
-                    <IconButton aria-label="save note" onClick={save}>
-                        {note.saved ? (<BookmarkIcon />) : (<BookmarkBorderIcon />)}
-                    </IconButton>
+            <div className="max-w-screen-md mx-auto">
+                <div className="flex flex-1 flex-row border-b-1 border-gray-400 pb-2">
+                    <div className="flex flex-1 items-center">
+                        <IconButton aria-label="save note" onClick={save}>
+                            {note.saved ? (<BookmarkIcon />) : (<BookmarkBorderIcon />)}
+                        </IconButton>
+                    </div>
+                    <div className="flex flex-1 items-center justify-end">
+                        <Button color="primary" variant="contained" startIcon={<GetAppIcon />} aria-label="download note">
+                            Download
+                        </Button>
+                    </div>
                 </div>
-                <div className="flex flex-1 items-center justify-end">
-                    <Button color="primary" variant="contained" startIcon={<GetAppIcon />} aria-label="download note">
-                        Download
-                    </Button>
+                <h1 className="text-3xl md:text-5xl mt-5 font-bold">
+                    {note.title}
+                </h1>
+                <h3 className="text-xl text-gray-500 my-5">
+                    {note.description}
+                </h3>
+                <div className="flex flex-1 flex-row items-center">
+                    <img src={testpb} alt="profile" className="rounded-full w-7 h-7 mr-3" />
+                    <div className="overflow-ellipsis overflow-hidden whitespace-nowrap">
+                        <Link to="/">Bjørn rivall andersen</Link>
+                    </div>
+                    <div className="ml-2 text-gray-500 md:text-base text-sm">
+                        {note.created}
+                        <span className="mx-2">·</span>
+                        {note.views} visninger
+                    </div>
                 </div>
-            </div>
-            <h1 className="text-3xl md:text-5xl mt-5 font-bold">
-                {note.title}
-            </h1>
-            <h3 className="text-xl text-gray-500 my-5">
-                {note.description}
-            </h3>
-            <div className="flex flex-1 flex-row items-center">
-                <img src={testpb} alt="profile" className="rounded-full w-7 h-7 mr-3" />
-                <div className="overflow-ellipsis overflow-hidden whitespace-nowrap">
-                    <Link to="/">Bjørn rivall andersen</Link>
-                </div>
-                <div className="ml-2 text-gray-500 md:text-base text-sm">
-                    {note.created}
-                    <span className="mx-2">·</span>
-                    {note.views} visninger
-                </div>
-            </div>
-            <div className="flex flex-1 flex-col mt-5">
-                <Tabs value={tabIndex} color="primary" onChange={(e, newValue) => {setTabIndex(newValue)}}>
-                    <Tab label="Artikel" />
-                    <Tab label="PDF" />
-                </Tabs>
-                <div className="flex justify-center md:block">
-                    <ArticlePanel value={tabIndex} index={0} html={htmlArticle} />
-                    <PDFPanel value={tabIndex} index={1}>
-                        <object data="https://static.notr.dk/pdf/6ukGe13m.pdf" type="application/pdf" className="w-screen md:w-full h-screen">
-                            {note.title}
-                        </object>
-                    </PDFPanel>
+                <div className="flex flex-1 flex-col mt-5">
+                    <Tabs value={tabIndex} color="primary" onChange={(e, newValue) => {setTabIndex(newValue)}}>
+                        <Tab label="Artikel" />
+                        <Tab label="PDF" />
+                    </Tabs>
+                    <div className="flex justify-center md:block">
+                        <ArticlePanel value={tabIndex} index={0} html={htmlArticle} />
+                        <PDFPanel value={tabIndex} index={1}>
+                            <object data="https://static.notr.dk/pdf/6ukGe13m.pdf" type="application/pdf" className="w-screen md:w-full h-screen">
+                                {note.title}
+                            </object>
+                        </PDFPanel>
+                    </div>
                 </div>
             </div>
         </>
