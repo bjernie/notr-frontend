@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import NavBar from "./NavBar";
 import {BrowserRouter} from 'react-router-dom';
-import {createMuiTheme, ThemeProvider} from "@material-ui/core";
+import {unstable_createMuiStrictModeTheme as createMuiTheme, ThemeProvider} from "@material-ui/core";
 
 const customTheme = createMuiTheme({
     palette: {

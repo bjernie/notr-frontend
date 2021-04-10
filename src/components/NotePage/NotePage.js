@@ -1,22 +1,19 @@
 import React, {useEffect, useState} from 'react';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import GetAppIcon from '@material-ui/icons/GetApp';
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-import BookmarkIcon from '@material-ui/icons/Bookmark';
 import testpb from '../../assets/testpb.jpg';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import {GetApp as GetAppIcon, Bookmark as BookmarkIcon, BookmarkBorder as BookmarkBorderIcon} from '@material-ui/icons'
+import {Button, Tabs, IconButton, Tab, Snackbar} from '@material-ui/core'
 import HashtagIcon from "../../custom/HashtagIcon";
 import {Link} from 'react-router-dom';
 import {apiUrl} from '../../index';
-import ArticlePanel from './ArticlePanel';
+import ArticlePanel from './ArticlePanel'
 import PDFPanel from './PDFPanel';
-import TagInput from "./TagInput";
+import TagInput from './TagInput';
+import MuiAlert from '@material-ui/lab/Alert';
 
 export default function NotePage(props) {
 
     const noteId = props.match.params.id;
+    const [showSnack, setShowSnack] = useState(false);
     const [tabIndex, setTabIndex] = useState(0);
     const [note, setNote] = useState({
         title: 'Tv-seriers plads i det kulturelle landskab\n',
@@ -54,7 +51,7 @@ export default function NotePage(props) {
             ...note,
             saved: !note.saved
         });
-
+        setShowSnack(true);
     }
 
     return (
@@ -116,6 +113,14 @@ export default function NotePage(props) {
                     </div>
                 </div>
             </div>
+            <Snackbar message="sdfsdfsdf" open={showSnack} autoHideDuration={2000} onClose={handleClose}>
+                <MuiAlert severity="success" variant="filled">Noten er gemt</MuiAlert>
+            </Snackbar>
         </>
     );
+
+    function handleClose() {
+        console.log('closed');
+        setShowSnack(false);
+    }
 }

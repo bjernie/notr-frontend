@@ -15,11 +15,12 @@ export default function TagInput({inputTags}) {
             case ',':
             case 'Enter':
             case 'Tab': {
-                event.preventDefault();
-                event.stopPropagation();
+               /* event.preventDefault();
+                event.stopPropagation();*/
                 if (tags.length < 5) {
                     setTags([...tags, event.target.defaultValue])
                 } else {
+                    setTags(tags.filter((tag, index) => (index <= 4)))
                     setErrorMessage(true);
                 }
                 break;
@@ -44,7 +45,7 @@ export default function TagInput({inputTags}) {
                 freeSolo
                 renderTags={(value, getTagProps) =>
                     value.map((option, index) => (
-                        <Chip icon={<HashtagIcon size={15}/>} label={option} {...getTagProps({ index })} />
+                        <Chip icon={<HashtagIcon size={20}/>} label={option} {...getTagProps({ index })} />
                     ))
                 }
                 renderInput={params => {
@@ -53,7 +54,7 @@ export default function TagInput({inputTags}) {
                         <TextField {...params}
                                    label="Tags"
                                    error={errorMessage}
-                                   placeholder="Favorites"
+                                   placeholder="Matematik"
                                    helperText={errorMessage && 'Din note kan maksimum have 5 tags'} />
                     );
                 }}
