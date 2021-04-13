@@ -8,7 +8,7 @@ function App() {
         <div className="mt-14">
             <Switch>
                 <Route path="/note/:id" render={(props) => <NotePage {...props} />} />
-                <Route path="/profile/:id" component={FrontPage} />
+                <Route path="/" component={FrontPage} />
             </Switch>
         </div>
     );
