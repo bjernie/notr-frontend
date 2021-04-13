@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import testpb from '../../assets/testpb.jpg';
-import {GetApp as GetAppIcon, Bookmark as BookmarkIcon, BookmarkBorder as BookmarkBorderIcon} from '@material-ui/icons'
+import {GetApp as GetAppIcon, Bookmark as BookmarkIcon, BookmarkBorder as BookmarkBorderIcon, MoreHoriz as MoreIcon} from '@material-ui/icons'
 import {Button, Tabs, IconButton, Tab, Snackbar} from '@material-ui/core'
 import HashtagIcon from "../../custom/HashtagIcon";
 import {Link} from 'react-router-dom';
@@ -59,7 +59,7 @@ export default function NotePage(props) {
             <div className="max-w-screen-md mx-auto">
                 <div className="flex flex-1 flex-row border-b-1 border-gray-400 pb-2">
                     <div className="flex flex-1 items-center">
-                        <IconButton aria-label="save note" onClick={save}>
+                        <IconButton aria-label="gem note" onClick={save}>
                             {note.saved ? (<BookmarkIcon />) : (<BookmarkBorderIcon />)}
                         </IconButton>
                     </div>
@@ -67,6 +67,9 @@ export default function NotePage(props) {
                         <Button color="primary" variant="contained" startIcon={<GetAppIcon />} aria-label="download note">
                             Download
                         </Button>
+                        <IconButton aria-label="mere">
+                            <MoreIcon />
+                        </IconButton>
                     </div>
                 </div>
                 <h1 className="text-3xl md:text-5xl mt-5 font-bold">

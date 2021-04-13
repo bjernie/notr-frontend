@@ -11,7 +11,9 @@ export default function PDFPanel({fileName, value, index, title}) {
                         </div>
                     )}
                     <div>
-                        <object data={'https://static.notr.dk/pdf/' + fileName + '.pdf'} type="application/pdf" className="w-screen md:w-full h-screen">
+                        <object data={'https://static.notr.dk/pdf/' + fileName + '.pdf'}
+                                type="application/pdf"
+                                className="w-screen md:w-full h-full">
                             {title}
                         </object>
                     </div>

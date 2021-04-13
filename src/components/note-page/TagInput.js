@@ -15,22 +15,25 @@ export default function TagInput({inputTags}) {
             case ',':
             case 'Enter':
             case 'Tab': {
-               /* event.preventDefault();
-                event.stopPropagation();*/
+                event.preventDefault();
+                event.stopPropagation();
                 if (tags.length < 5) {
-                    setTags([...tags, event.target.defaultValue])
+                    console.log(event.target.defaultValue);
+                    const trimedValue = event.target.defaultValue.trim()/*.replace(/\s{2,}/g, ' ');*/
+                    const value = trimedValue.replace(/[{}|^%?=/."',!# ]+/g, '-');
+                    setTags([...tags, value])
                 } else {
                     setTags(tags.filter((tag, index) => (index <= 4)))
                     setErrorMessage(true);
                 }
                 break;
             }
-            case 'Backspace': {
+            /*case 'Backspace': {
                 if (event.target.defaultValue.length === 1) {
                     setErrorMessage(false);
                 }
                 break;
-            }
+            }*/
             default:
         }
     }
