@@ -30,7 +30,7 @@ export default function FrontPage() {
     ]);
 
 
-    const [isLoggedIn] = useState(true);
+    const [isLoggedIn] = useState(false);
 
     let followPosts;
     if (isLoggedIn) {
