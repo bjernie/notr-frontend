@@ -1,18 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import testpb from '../../assets/testpb.jpg';
 import {GetApp as GetAppIcon, Bookmark as BookmarkIcon, BookmarkBorder as BookmarkBorderIcon, MoreHoriz as MoreIcon} from '@material-ui/icons'
 import {Button, Tabs, IconButton, Tab, Snackbar} from '@material-ui/core'
 import HashtagIcon from "../../custom/HashtagIcon";
-import {Link} from 'react-router-dom';
-import {apiUrl} from '../../index';
+import Link from 'next/link';
 import ArticlePanel from './ArticlePanel'
 import PDFPanel from './PDFPanel';
 import TagInput from './TagInput';
 import MuiAlert from '@material-ui/lab/Alert';
 
-export default function NotePage(props) {
+export default function Index(props) {
 
-    const noteId = props.match.params.id;
+    //const noteId = props.match.params.id;
     const [showSnack, setShowSnack] = useState(false);
     const [tabIndex, setTabIndex] = useState(0);
     const [note, setNote] = useState({
@@ -95,9 +93,9 @@ export default function NotePage(props) {
                     )}
                 </div>
                 <div className="flex flex-1 flex-row items-center">
-                    <img src={testpb} alt="profile" className="rounded-full w-7 h-7 mr-3" />
+                    {/*<img src={testpb} alt="profile" className="rounded-full w-7 h-7 mr-3" />*/}
                     <div className="overflow-ellipsis overflow-hidden whitespace-nowrap">
-                        <Link to="/">{note.user?.username}</Link>
+                        <Link href="/">{note.user?.username}</Link>
                     </div>
                     <div className="ml-2 text-gray-500 md:text-base text-sm">
                         {convertDate()}
