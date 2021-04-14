@@ -8,7 +8,7 @@ import PDFPanel from './PDFPanel';
 import TagInput from './TagInput';
 import MuiAlert from '@material-ui/lab/Alert';
 
-export default function Index(props) {
+export default function NoteId(props) {
 
     //const noteId = props.match.params.id;
     const [showSnack, setShowSnack] = useState(false);
@@ -31,6 +31,7 @@ export default function Index(props) {
             const noteJSON = await resp.json();
             setNote(noteJSON);
         }
+
         //getNote();
     }, []);
 

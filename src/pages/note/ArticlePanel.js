@@ -5,13 +5,13 @@ export default function ArticlePanel({fileName, value, index}) {
     const [article, setArticle] = useState('');
 
     function resizeArticle(articleText) {
-       /* const elem = document.createElement('div');
-        elem.innerHTML = articleText;
-        const paragraphs = elem.getElementsByTagName('p');
-        for (const paragraph of paragraphs) {
-            paragraph.style.left = '85pt';
-        }
-        setArticle(elem.outerHTML);*/
+        /* const elem = document.createElement('div');
+         elem.innerHTML = articleText;
+         const paragraphs = elem.getElementsByTagName('p');
+         for (const paragraph of paragraphs) {
+             paragraph.style.left = '85pt';
+         }
+         setArticle(elem.outerHTML);*/
         setArticle(articleText)
     }
 
@@ -22,6 +22,7 @@ export default function ArticlePanel({fileName, value, index}) {
             await setArticle(articleText);
             resizeArticle(articleText)
         }
+
         getArticle();
     }, [fileName]);
 

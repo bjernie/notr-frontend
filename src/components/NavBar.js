@@ -1,9 +1,10 @@
 import React from 'react';
-import logo from '../public/logo.png';
-import testpb from '../public/testpb.jpg';
+import logo from '../../public/logo.png';
+import testpb from '../../public/testpb.jpg';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import {Link} from 'react-router-dom';
+import Link from 'next/link';
+import Image from 'next/image';
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -21,7 +22,7 @@ export default function NavBar() {
     return (
         <nav className="h-14 bg-white flex flex-row">
             <div className="flex md:flex-1 items-center">
-                <img src={logo} alt="notr logo" height="30px" width="30px" className="mr-3" />
+                <Image src={logo} alt="notr logo" height="30px" width="30px" className="mr-3" />
                 <div className="invisible md:visible">
                     Notr
                 </div>
@@ -37,7 +38,7 @@ export default function NavBar() {
                 {loggedIn ? (
                     <>
                         <IconButton color="primary" component={Link} to="/upload">
-                                <AddIcon />
+                            <AddIcon />
                         </IconButton>
                         <IconButton className="md:mx-2.5 mx-1">
                             <NotificationsIcon />
@@ -45,11 +46,11 @@ export default function NavBar() {
                         <IconButton className="md:mr-2.5 mr-1" component={Link} to="/indstillinger">
                             <SettingsIcon />
                         </IconButton>
-                        <img src={testpb} alt="user profile" className="rounded-full" height="30px" width="30px" />
+                        <Image src={testpb} alt="user profile" className="rounded-full" height="30px" width="30px" />
                     </>
                 ) : (
                     <>
-                        <Link to="/betingelser">
+                        <Link href="/betingelser">
                             Betingelser
                         </Link>
                         <IconButton className="md:mx-2.5">
