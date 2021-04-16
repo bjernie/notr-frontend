@@ -1,6 +1,4 @@
 import React from 'react';
-import logo from '../../public/logo.png';
-import testpb from '../../public/testpb.jpg';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Link from 'next/link';
@@ -22,7 +20,7 @@ export default function NavBar() {
     return (
         <nav className="h-14 bg-white flex flex-row">
             <div className="flex md:flex-1 items-center">
-                <Image src={logo} alt="notr logo" height="30px" width="30px" className="mr-3" />
+                <img src="/logo.png" alt="notr logo" height="30px" width="30px" className="mr-3" />
                 <div className="invisible md:visible">
                     Notr
                 </div>
@@ -37,25 +35,34 @@ export default function NavBar() {
             <div className="flex flex-1 items-center justify-end">
                 {loggedIn ? (
                     <>
-                        <IconButton color="primary" component={Link} to="/upload">
-                            <AddIcon />
-                        </IconButton>
+                        <Link href="/upload">
+                            <IconButton color="primary">
+                                <AddIcon />
+                            </IconButton>
+                        </Link>
+
                         <IconButton className="md:mx-2.5 mx-1">
                             <NotificationsIcon />
                         </IconButton>
-                        <IconButton className="md:mr-2.5 mr-1" component={Link} to="/indstillinger">
-                            <SettingsIcon />
-                        </IconButton>
-                        <Image src={testpb} alt="user profile" className="rounded-full" height="30px" width="30px" />
+
+                        <Link href="/indstillinger">
+                            <IconButton className="md:mr-2.5 mr-1">
+                                <SettingsIcon />
+                            </IconButton>
+                        </Link>
+                        <img src="/testpb.jpg" alt="user profile" className="rounded-full" height="30px" width="30px" />
                     </>
                 ) : (
                     <>
+
                         <Link href="/betingelser">
                             Betingelser
                         </Link>
-                        <IconButton className="md:mx-2.5">
-                            <AddIcon />
-                        </IconButton>
+                        <Link href="/upload">
+                            <IconButton class="md:mx-2.5">
+                                <AddIcon />
+                            </IconButton>
+                        </Link>
                         <div>
                             Log ind/opret bruger
                         </div>
