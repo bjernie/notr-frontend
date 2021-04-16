@@ -3,6 +3,8 @@ import {GetApp as GetAppIcon, Bookmark as BookmarkIcon, BookmarkBorder as Bookma
 import {Button, Tabs, IconButton, Tab, Snackbar} from '@material-ui/core'
 import HashtagIcon from "../../custom/HashtagIcon";
 import Link from 'next/link';
+import {useRouter} from "next/router";
+import {apiUrl} from "../_app";
 import ArticlePanel from './ArticlePanel'
 import PDFPanel from './PDFPanel';
 import TagInput from './TagInput';
@@ -10,7 +12,8 @@ import MuiAlert from '@material-ui/lab/Alert';
 
 export default function NoteId({noteData}) {
 
-    //const noteId = props.match.params.id;
+    const router = useRouter();
+    const noteId = router.query;
     const [showSnack, setShowSnack] = useState(false);
     const [tabIndex, setTabIndex] = useState(0);
     const note = noteData;

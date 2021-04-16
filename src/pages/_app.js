@@ -10,6 +10,8 @@ const customTheme = createMuiTheme({
     }
 })
 
+export const apiUrl = 'http://localhost:5000';
+
 function MyApp({Component, pageProps}) {
     return (
         <ThemeProvider theme={customTheme}>
