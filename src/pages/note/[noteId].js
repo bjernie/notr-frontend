@@ -5,9 +5,9 @@ import HashtagIcon from "../../custom/HashtagIcon";
 import Link from 'next/link';
 import {useRouter} from "next/router";
 import {apiUrl} from "../_app";
-import ArticlePanel from '../../components/note/ArticlePanel';
-import PDFPanel from '../../components/note/PDFPanel';
-import TagInput from '../../components/note/TagInput';
+import ArticlePanel from '../../components/notePage/ArticlePanel';
+import PDFPanel from '../../components/notePage/PDFPanel';
+import TagInput from '../../components/notePage/TagInput';
 import MuiAlert from '@material-ui/lab/Alert';
 
 export default function NoteId({noteData}) {
