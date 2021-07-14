@@ -21,7 +21,7 @@ export default function NavBar() {
         <nav className="h-14 bg-white flex flex-row">
             <div className="flex md:flex-1 items-center">
                 <img src="/logo.png" alt="notr logo" height="30px" width="30px" className="mr-3" />
-                <div className="invisible md:visible">
+                <div className="invisible md:visible font-bold">
                     Notr
                 </div>
             </div>

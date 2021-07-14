@@ -30,7 +30,7 @@ export default function FrontPage() {
     ]);
 
 
-    const [isLoggedIn] = useState(false);
+    const [isLoggedIn] = useState(true);
 
     function save(event) {
         console.log(event);

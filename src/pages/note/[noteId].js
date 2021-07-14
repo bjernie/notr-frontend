@@ -10,23 +10,23 @@ import PDFPanel from '../../components/notePage/PDFPanel';
 import TagInput from '../../components/notePage/TagInput';
 import MuiAlert from '@material-ui/lab/Alert';
 
-export default function NoteId({noteData}) {
+export default function NoteId() {
 
     const router = useRouter();
     const noteId = router.query;
     const [showSnack, setShowSnack] = useState(false);
     const [tabIndex, setTabIndex] = useState(0);
-    const [note, setNote] = useState(noteData);
-    /*const [note, setNote] = useState({
+    const [note, setNote] = useState({
         title: 'Tv-seriers plads i det kulturelle landskab\n',
-        //description: 'Opgavebeskrivelse: Skriv en debatterende artikel, hvor du med udgangspunkt i konkrete eksempler undersøger og diskuterer tv-seriens plads i det kulturelle landskab, og hvor du forsøger at overbevise din læser om dine egne synspunkter på tv-seriens potentialer og udfordringer som genre. Meh den blev vel ok?',
+        description: 'Opgavebeskrivelse: Skriv en debatterende artikel, hvor du med udgangspunkt i konkrete eksempler undersøger og diskuterer tv-seriens plads i det kulturelle landskab, og hvor du forsøger at overbevise din læser om dine egne synspunkter på tv-seriens potentialer og udfordringer som genre. Meh den blev vel ok?',
         views: 23,
+        saves: 2,
         tags: ['dansk', 'engelsk'],
         file: '6ukGe13m',
         iso_date: '2020-04-12',
         user: {username: 'Bjørn Rivall Andersen', currentUser: true},
         saved: true
-    });*/
+    });
 
     useEffect(() => {
         console.log(note);
@@ -36,7 +36,8 @@ export default function NoteId({noteData}) {
             const noteJSON = await resp.json();
             setNote(noteJSON);
         }
-        //getNote();
+
+        getNote();
     }, []);
 
 
@@ -134,14 +135,14 @@ export default function NoteId({noteData}) {
 
 export async function getServerSideProps() {
     const note = {
-            title: 'Tv-seriers plads i det kulturelle landskab\n',
-            //description: 'Opgavebeskrivelse: Skriv en debatterende artikel, hvor du med udgangspunkt i konkrete eksempler undersøger og diskuterer tv-seriens plads i det kulturelle landskab, og hvor du forsøger at overbevise din læser om dine egne synspunkter på tv-seriens potentialer og udfordringer som genre. Meh den blev vel ok?',
-            views: 23,
-            tags: ['dansk', 'engelsk'],
-            file: '6ukGe13m',
-            iso_date: '2020-04-12',
-            user: {username: 'Bjørn Rivall Andersen', currentUser: true},
-            saved: true
+        title: 'Tv-seriers plads i det kulturelle landskab\n',
+        //description: 'Opgavebeskrivelse: Skriv en debatterende artikel, hvor du med udgangspunkt i konkrete eksempler undersøger og diskuterer tv-seriens plads i det kulturelle landskab, og hvor du forsøger at overbevise din læser om dine egne synspunkter på tv-seriens potentialer og udfordringer som genre. Meh den blev vel ok?',
+        views: 23,
+        tags: ['dansk', 'engelsk'],
+        file: '6ukGe13m',
+        iso_date: '2020-04-12',
+        user: {username: 'Bjørn Rivall Andersen', currentUser: true},
+        saved: true
     };
     return {props: {noteData: note}}
 }
