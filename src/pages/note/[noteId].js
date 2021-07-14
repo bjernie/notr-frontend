@@ -135,14 +135,14 @@ export default function NoteId() {
 
 export async function getServerSideProps() {
     const note = {
-            title: 'Tv-seriers plads i det kulturelle landskab\n',
-            //description: 'Opgavebeskrivelse: Skriv en debatterende artikel, hvor du med udgangspunkt i konkrete eksempler undersøger og diskuterer tv-seriens plads i det kulturelle landskab, og hvor du forsøger at overbevise din læser om dine egne synspunkter på tv-seriens potentialer og udfordringer som genre. Meh den blev vel ok?',
-            views: 23,
-            tags: ['dansk', 'engelsk'],
-            file: '6ukGe13m',
-            iso_date: '2020-04-12',
-            user: {username: 'Bjørn Rivall Andersen', currentUser: true},
-            saved: true
+        title: 'Tv-seriers plads i det kulturelle landskab\n',
+        //description: 'Opgavebeskrivelse: Skriv en debatterende artikel, hvor du med udgangspunkt i konkrete eksempler undersøger og diskuterer tv-seriens plads i det kulturelle landskab, og hvor du forsøger at overbevise din læser om dine egne synspunkter på tv-seriens potentialer og udfordringer som genre. Meh den blev vel ok?',
+        views: 23,
+        tags: ['dansk', 'engelsk'],
+        file: '6ukGe13m',
+        iso_date: '2020-04-12',
+        user: {username: 'Bjørn Rivall Andersen', currentUser: true},
+        saved: true
     };
     return {props: {noteData: note}}
 }

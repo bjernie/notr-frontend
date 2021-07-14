@@ -2,6 +2,7 @@ import 'tailwindcss/tailwind.css';
 import NavBar from "../components/NavBar";
 import {createMuiTheme, ThemeProvider} from "@material-ui/core";
 import {useEffect} from "react";
+import Head from 'next/head';
 
 const customTheme = createMuiTheme({
     palette: {
@@ -25,6 +26,8 @@ function MyApp({Component, pageProps}) {
 
     return (
         <ThemeProvider theme={customTheme}>
+            <Head>
+                <title>Notr</title></Head>
             <div className="w-11/12 mx-auto max-w-screen-xl">
                 <NavBar />
                 <div className="mt-14">
