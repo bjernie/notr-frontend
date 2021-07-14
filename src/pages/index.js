@@ -1,26 +1,52 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import {apiUrl} from "./_app";
 
 export default function FrontPage() {
 
-    const [suggestedUsers, setUsers] = useState([
-        {
-            profilePicture: 'https://static.notr.dk/profilbilleder/Fsu9Hyvv.jpg',
-            username: 'Johan',
-            karma: '223',
-            followers: ['Max']
-        }
-    ]);
-
-    const [followFrontpageNotes] = useState([]);
-    const [weekFrontpageNotes] = useState([]);
-
-
+    const [suggestedUsers, setSuggestedUsers] = useState([]);
+    const [followFrontpageNotes, setFollowFrontpageNotes] = useState([]);
+    const [weekFrontpageNotes, setWeekFrontpageNotes] = useState([]);
     const [isLoggedIn] = useState(true);
+
+    useEffect(() => {
+        async function getNotes() {
+            const noteUrl = `${apiUrl}/getNotes`;
+            const userUrl = `${apiUrl}/getUsers`;
+            fetch(userUrl, {
+                method: 'POST',
+                body: {
+                    sort: 'suggestedUsers',
+                    usr: {id:417389471894}
+                }
+            }).then(data => {
+                setSuggestedUsers([data.json()]);
+            });
+            fetch(noteUrl, {
+                method: 'POST',
+                body: {
+                    sort: 'weekTop',
+                    usr: {id:417389471894}
+                }
+            }).then(data => {
+                setWeekFrontpageNotes([data.json()]);
+            });
+            fetch(noteUrl, {
+                method: 'POST',
+                body: {
+                    sort: 'followTop',
+                    usr: {id:417389471894}
+                }
+            }).then(data => {
+                setFollowFrontpageNotes([data.json()]);
+            });
+        }
+
+        getNotes();
+    }, []);
 
     function save(event) {
         console.log(event);
-        console.log(users);
     }
 
     return (
