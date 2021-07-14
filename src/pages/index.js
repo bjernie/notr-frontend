@@ -3,7 +3,7 @@ import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 
 export default function FrontPage() {
 
-    const [users, setUsers] = useState([
+    const [suggestedUsers, setUsers] = useState([
         {
             profilePicture: 'https://static.notr.dk/profilbilleder/Fsu9Hyvv.jpg',
             username: 'Johan',
@@ -12,22 +12,8 @@ export default function FrontPage() {
         }
     ]);
 
-    const [frontpageNotes] = useState([
-        {
-            title: 'Tv-seriers plads i det kulturelle landskab',
-            description: 'Opgavebeskrivelse: Skriv en debatterende artikel, hvor du med udgangspunkt i konkrete eksempler undersøger og diskuterer tv-seriens plads i det kulturelle landskab, og hvor du forsøger at overbevise din læser om dine egne synspunkter på tv-seriens potentialer og udfordringer som genre. Meh den blev vel ok?',
-            views: 23,
-            tags: ['dansk', 'engelsk'],
-            preview: 'https://imgur.com/a/R81lKBz',
-            file: '6ukGe13m',
-            iso_date: '2020-04-12',
-            user: {
-                username: 'Bjørn Rivall Andersen',
-                currentUser: true
-            },
-            saved: true
-        }
-    ]);
+    const [followFrontpageNotes] = useState([]);
+    const [weekFrontpageNotes] = useState([]);
 
 
     const [isLoggedIn] = useState(true);
