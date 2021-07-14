@@ -16,7 +16,7 @@ export default function NoteId({noteData}) {
     const noteId = router.query;
     const [showSnack, setShowSnack] = useState(false);
     const [tabIndex, setTabIndex] = useState(0);
-    const note = noteData;
+    const [note, setNote] = useState(noteData);
     /*const [note, setNote] = useState({
         title: 'Tv-seriers plads i det kulturelle landskab\n',
         //description: 'Opgavebeskrivelse: Skriv en debatterende artikel, hvor du med udgangspunkt i konkrete eksempler undersøger og diskuterer tv-seriens plads i det kulturelle landskab, og hvor du forsøger at overbevise din læser om dine egne synspunkter på tv-seriens potentialer og udfordringer som genre. Meh den blev vel ok?',
@@ -36,7 +36,6 @@ export default function NoteId({noteData}) {
             const noteJSON = await resp.json();
             setNote(noteJSON);
         }
-
         //getNote();
     }, []);
 
