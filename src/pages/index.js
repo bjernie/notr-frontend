@@ -47,7 +47,7 @@ export default function FrontPage() {
                         <TrendingUpIcon className="mr-1.5"/>
                         TOP BRUGERE
                     </div>
-                    {users.map(name =>
+                    {suggestedUsers.map(name =>
                         <div>
 
                         </div>
